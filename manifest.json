@@ -1,0 +1,12 @@
+{
+	"manifest_version": 3,
+	"name": "Boxes",
+	"version": "0.1",
+	"description": "Instantly create email inboxes for signing up to things",
+	"icons": {
+		"64": "icons/64.png"
+	},
+	"action": {
+		"default_popup": "popup/index.html"
+	}
+}
