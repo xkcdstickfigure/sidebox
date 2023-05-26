@@ -6,6 +6,7 @@
 	"icons": {
 		"64": "icons/64.png"
 	},
+	"host_permissions": ["*://localhost/*"],
 	"action": {
 		"default_popup": "popup/index.html"
 	}
