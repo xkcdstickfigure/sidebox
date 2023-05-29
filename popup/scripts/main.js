@@ -1,3 +1,6 @@
-chrome.storage.local.get(null, (storage) => {
-	document.write(JSON.stringify(storage))
+import { createAPIClient } from "../../api.js"
+
+chrome.storage.local.get(null, ({ token }) => {
+	const api = createAPIClient(token)
+	api.account().then(console.log).catch(console.error)
 })
