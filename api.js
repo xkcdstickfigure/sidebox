@@ -10,14 +10,16 @@ export const createAPIClient = (token) => {
 					"content-type": "application/json",
 				},
 				body: body ? JSON.stringify(body) : undefined,
-			}).then((res) => {
-				if (res.status === 200) res.json().then((data) => resolve(data))
-				else
-					res
-						.json()
-						.then((err) => reject(err.errorName))
-						.catch(resolve)
 			})
+				.then((res) => {
+					if (res.status === 200) res.json().then((data) => resolve(data))
+					else
+						res
+							.json()
+							.then((err) => reject(err.errorName))
+							.catch(resolve)
+				})
+				.catch(reject)
 		)
 
 	return {
