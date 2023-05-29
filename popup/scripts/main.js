@@ -1,5 +1,13 @@
 import { createAPIClient } from "../../api.js"
 
+// screens
+const setScreen = (name) => {
+	document.querySelectorAll(".screen").forEach((elem) => {
+		elem.style.display = elem.dataset.screen === name ? "block" : "none"
+	})
+}
+setScreen("loading")
+
 // retreive data from storage
 chrome.storage.local.get(null, ({ token, accountCache }) => {
 	// launch auth flow if no token
@@ -35,5 +43,5 @@ const launchAuthFlow = () => {
 
 // show message
 const showMessage = (text) => {
-	document.querySelector(".message").innerText = text
+	//document.querySelector(".message").innerText = text
 }

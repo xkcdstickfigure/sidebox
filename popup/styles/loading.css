@@ -1,0 +1,27 @@
+.loadingScreen .inner {
+	background: #fff7d9;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+}
+
+.loadingScreen .icon {
+	width: 72px;
+	height: 72px;
+	animation: loadingPulse 1s infinite;
+}
+
+@keyframes loadingPulse {
+	0%,
+	100% {
+		width: 72px;
+		height: 72px;
+		animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+	}
+	50% {
+		width: 88px;
+		height: 88px;
+		animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+	}
+}
