@@ -20,7 +20,8 @@ const apiFetch = (method, url, body) =>
 		})
 	)
 
-const api = {
+export const api = {
+	login: (code) => apiFetch("POST", "login", { code }),
 	account: () => apiFetch("GET", "account"),
 	inboxCreate: (name) => apiFetch("POST", "inbox", { name }),
 	inboxGet: (id) => apiFetch("GET", `inbox/${encodeURIComponent(id)}`),

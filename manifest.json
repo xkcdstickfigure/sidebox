@@ -7,8 +7,18 @@
 		"64": "icons/64.png"
 	},
 	"permissions": ["storage"],
-	"host_permissions": ["*://localhost/*"],
+	"host_permissions": ["http://localhost/*"],
 	"action": {
 		"default_popup": "popup/index.html"
+	},
+	"content_scripts": [
+		{
+			"matches": ["https://example.com/*"],
+			"js": ["content-scripts/login.js"]
+		}
+	],
+	"background": {
+		"service_worker": "service-worker.js",
+		"type": "module"
 	}
 }
