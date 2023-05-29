@@ -1,3 +1,3 @@
-browser.storage.local.get(null).then((storage) => {
+chrome.storage.local.get(null, (storage) => {
 	console.log(storage)
 })
