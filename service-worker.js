@@ -8,7 +8,7 @@ chrome.runtime.onMessage.addListener((request, sender) => {
 			api
 				.login(code)
 				.then(({ token }) => {
-					console.log(token)
+					chrome.storage.local.set({ token })
 				})
 				.catch(console.error)
 	}
