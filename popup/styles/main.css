@@ -1,4 +1,9 @@
 @import url("./loading.css");
+@import url("./home.css");
+
+* {
+	margin: 0;
+}
 
 body {
 	width: 256px;

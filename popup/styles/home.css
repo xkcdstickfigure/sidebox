@@ -1,0 +1,33 @@
+.homeScreen {
+	background: #fcfcfc;
+}
+
+.homeScreen header {
+	background: #ffeca8;
+	padding: 16px;
+	padding-bottom: 24px;
+}
+
+.homeScreen .title {
+	font-size: 20px;
+	font-weight: 500;
+}
+
+.homeScreen .create {
+	position: relative;
+	padding: 0 12px;
+	top: -16px;
+}
+
+.homeScreen .create input {
+	border: none;
+	font-size: 12px;
+	width: 100%;
+	padding: 8px 12px;
+	box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+	border-radius: 4px;
+}
+
+.homeScreen .create input::placeholder {
+	color: #aaaaaa;
+}
