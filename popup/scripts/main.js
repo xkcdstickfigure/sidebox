@@ -1,4 +1,5 @@
 import { createAPIClient } from "../../api.js"
+import { renderHomeScreen } from "./home.js"
 
 // screens
 const setScreen = (name) => {
@@ -16,8 +17,11 @@ chrome.storage.local.get(null, ({ token, accountCache }) => {
 	// create api client
 	const api = createAPIClient(token)
 
-	// render page from account cache
-	if (accountCache) setScreen("home")
+	// render home screen from account cache
+	if (accountCache) {
+		renderHomeScreen(accountCache)
+		setScreen("home")
+	}
 
 	// fetch account data
 	api
@@ -26,6 +30,8 @@ chrome.storage.local.get(null, ({ token, accountCache }) => {
 			// store account data
 			chrome.storage.local.set({ accountCache: data })
 
+			// render home screen
+			renderHomeScreen(accountCache)
 			setScreen("home")
 		})
 		.catch((err) => {

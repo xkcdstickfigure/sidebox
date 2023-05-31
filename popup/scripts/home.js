@@ -1,0 +1,43 @@
+import { getColor } from "./color.js"
+
+const inboxes = document.querySelector(".homeScreen .inboxes")
+
+export const renderHomeScreen = (account) => {
+	inboxes.innerHTML = ""
+	inboxes.append(
+		...account.inboxes.map((inbox) =>
+			createInbox(inbox.id, inbox.name, inbox.address)
+		)
+	)
+}
+
+const createInbox = (id, name, address) => {
+	const inbox = document.createElement("div")
+	inbox.className = "inbox"
+
+	const icon = document.createElement("div")
+	icon.className = "icon"
+	icon.style.backgroundColor = getColor(id)
+	icon.innerText = name[0].toUpperCase()
+
+	const info = document.createElement("div")
+	info.className = "info"
+
+	const nameText = document.createElement("p")
+	nameText.className = "name"
+	nameText.innerText = name
+
+	const addressText = document.createElement("p")
+	addressText.className = "address"
+	addressText.innerText = censorAddress(address)
+
+	info.append(nameText, addressText)
+	inbox.append(icon, info)
+	return inbox
+}
+
+const censorAddress = (address) => {
+	const username = address.split("@")[0]
+	const domain = address.split("@")[1]
+	return `${username.substring(0, 4)}****@${domain}`
+}

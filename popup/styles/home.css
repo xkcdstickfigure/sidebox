@@ -1,5 +1,5 @@
 .homeScreen {
-	background: #fcfcfc;
+	background: #f8f8f8;
 }
 
 .homeScreen header {
@@ -13,10 +13,13 @@
 	font-weight: 500;
 }
 
-.homeScreen .create {
+.homeScreen .body {
 	position: relative;
-	padding: 0 12px;
 	top: -16px;
+}
+
+.homeScreen .create {
+	padding: 0 12px;
 }
 
 .homeScreen .create input {
@@ -24,10 +27,51 @@
 	font-size: 12px;
 	width: 100%;
 	padding: 8px 12px;
-	box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+	box-shadow: var(--shadow);
 	border-radius: 4px;
+	background: #ffffff;
 }
 
 .homeScreen .create input::placeholder {
 	color: #aaaaaa;
+}
+
+.homeScreen .inboxes {
+	padding: 0 12px;
+}
+
+.homeScreen .inbox {
+	display: flex;
+	align-items: center;
+	padding: 8px;
+	box-shadow: var(--shadow);
+	border-radius: 4px;
+	background: #ffffff;
+	margin-top: 12px;
+}
+
+.homeScreen .inbox .icon {
+	width: 32px;
+	height: 32px;
+	border-radius: 4px;
+	color: #ffffff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 16px;
+}
+
+.homeScreen .inbox .info {
+	margin-left: 8px;
+}
+
+.homeScreen .inbox .name {
+	font-size: 14px;
+}
+
+.homeScreen .inbox .address {
+	font-weight: 300;
+	font-size: 8px;
+	color: #888888;
+	margin-top: 1.5px;
 }
