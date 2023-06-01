@@ -1,4 +1,4 @@
-import { createAPIClient } from "../../api.js"
+import { API } from "../../api.js"
 import { renderHomeScreen } from "./home.js"
 
 // screens
@@ -15,7 +15,7 @@ chrome.storage.local.get(null, ({ token, accountCache }) => {
 	if (!token) return launchAuthFlow()
 
 	// create api client
-	const api = createAPIClient(token)
+	const api = new API(token)
 
 	// render home screen from account cache
 	if (accountCache) {
