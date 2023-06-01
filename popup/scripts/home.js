@@ -6,12 +6,12 @@ export const renderHomeScreen = (account) => {
 	inboxes.innerHTML = ""
 	inboxes.append(
 		...account.inboxes.map((inbox) =>
-			createInbox(inbox.id, inbox.name, inbox.address)
+			createInbox(inbox.id, inbox.name, inbox.address, inbox.unread)
 		)
 	)
 }
 
-const createInbox = (id, name, address) => {
+const createInbox = (id, name, address, unread) => {
 	const inbox = document.createElement("div")
 	inbox.className = "inbox"
 
@@ -30,6 +30,12 @@ const createInbox = (id, name, address) => {
 	const addressText = document.createElement("p")
 	addressText.className = "address"
 	addressText.innerText = censorAddress(address)
+
+	if (unread) {
+		const unreadDot = document.createElement("div")
+		unreadDot.className = "dot"
+		inbox.append(unreadDot)
+	}
 
 	info.append(nameText, addressText)
 	inbox.append(icon, info)
