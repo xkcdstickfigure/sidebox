@@ -7,8 +7,8 @@ export class API {
 		this.#token = token
 	}
 
-	#fetch(method, url, body) {
-		return new Promise((resolve, reject) =>
+	#fetch = (method, url, body) =>
+		new Promise((resolve, reject) =>
 			fetch(`${server}/api/${url}`, {
 				method,
 				headers: {
@@ -27,7 +27,6 @@ export class API {
 				})
 				.catch(reject)
 		)
-	}
 
 	login = (code) => this.#fetch("POST", "login", { code })
 	account = () => this.#fetch("GET", "account")
