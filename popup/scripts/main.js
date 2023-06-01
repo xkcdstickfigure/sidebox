@@ -31,7 +31,7 @@ chrome.storage.local.get(null, ({ token, accountCache }) => {
 			chrome.storage.local.set({ accountCache: data })
 
 			// render home screen
-			renderHomeScreen(accountCache)
+			renderHomeScreen(data)
 			setScreen("home")
 		})
 		.catch((err) => {
