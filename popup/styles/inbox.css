@@ -60,14 +60,14 @@
 }
 
 .inboxScreen .message .subject {
-	font-size: 12px;
+	font-size: 14px;
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
 }
 
 .inboxScreen .message .from {
-	font-size: 8px;
+	font-size: 10px;
 	color: var(--medium-gray);
 	margin-top: 1.5px;
 	overflow: hidden;
