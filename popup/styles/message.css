@@ -25,13 +25,13 @@
 }
 
 .messageScreen .from {
-	font-size: 8px;
+	font-size: 10px;
 	color: var(--dark-gray);
 	margin-top: 4px;
 }
 
 .messageScreen .date {
-	font-size: 8px;
+	font-size: 10px;
 	color: var(--dark-gray);
 	margin-top: 4px;
 }
