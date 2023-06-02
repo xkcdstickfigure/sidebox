@@ -14,7 +14,7 @@ chrome.storage.local.get(null, ({ token, accountCache }) => {
 
 	// render home screen from account cache
 	if (accountCache) {
-		renderHomeScreen(accountCache)
+		renderHomeScreen(api, accountCache)
 		setScreen("home")
 	}
 
@@ -26,7 +26,7 @@ chrome.storage.local.get(null, ({ token, accountCache }) => {
 			chrome.storage.local.set({ accountCache: data })
 
 			// render home screen
-			renderHomeScreen(data)
+			renderHomeScreen(api, data)
 			if (!accountCache) setScreen("home")
 		})
 		.catch((err) => {

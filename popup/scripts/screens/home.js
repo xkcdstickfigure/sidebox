@@ -5,21 +5,17 @@ import { censorAddress } from "../util/address.js"
 
 const inboxes = document.querySelector(".homeScreen .inboxes")
 
-export const renderHomeScreen = (account) => {
+export const renderHomeScreen = (api, account) => {
 	inboxes.innerHTML = ""
-	inboxes.append(
-		...account.inboxes.map((inbox) =>
-			createInbox(inbox.id, inbox.name, inbox.address, inbox.unread)
-		)
-	)
+	inboxes.append(...account.inboxes.map((inbox) => createInbox(api, inbox)))
 }
 
-const createInbox = (id, name, address, unread) => {
+const createInbox = (api, { id, name, address, unread }) => {
 	const inbox = document.createElement("button")
 	inbox.className = "inbox"
 
 	inbox.onclick = () => {
-		renderInboxScreen({ id, name, address })
+		renderInboxScreen(api, { id, name, address })
 		setScreen("inbox")
 	}
 
