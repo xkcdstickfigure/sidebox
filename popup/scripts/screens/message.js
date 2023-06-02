@@ -6,6 +6,7 @@ const $ = (str) => screen.querySelector(str)
 // back
 $(".back").onclick = () => setScreen("inbox")
 
+// render screen
 export const renderMessageScreen = (
 	api,
 	{ id, fromName, fromAddress, subject, date }
@@ -19,6 +20,15 @@ export const renderMessageScreen = (
 	$(".content").srcdoc = ""
 
 	api.messageGet(id).then((data) => {
-		$(".content").srcdoc = data.body
+		$(".content").srcdoc = htmlContentPrefix + data.body
 	})
 }
+
+// html content prefix
+const htmlContentPrefix = `<style>
+	* {
+		font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+			Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif,
+			Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+	}
+</style>`
