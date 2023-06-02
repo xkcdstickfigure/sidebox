@@ -13,6 +13,7 @@ export const renderHomeScreen = (api, account) => {
 const createInbox = (api, { id, name, address, unread }) => {
 	const inbox = document.createElement("button")
 	inbox.className = "inbox"
+	inbox.dataset.inboxId = id
 
 	inbox.onclick = () => {
 		renderInboxScreen(api, { id, name, address })

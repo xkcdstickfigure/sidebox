@@ -38,6 +38,17 @@ export const renderInboxScreen = (api, { id, name, address }) => {
 
 	// delete
 	$(".deleteConfirm").style.display = "none"
+	$(".deleteConfirm .confirm").onclick = () => {
+		api.inboxDelete(id).then(() => {
+			// remove inbox from home screen list
+			document
+				.querySelector(`.homeScreen .inbox[data-inbox-id="${id}"]`)
+				?.remove()
+
+			// return to home screen
+			setScreen("home")
+		})
+	}
 
 	// loading
 	$(".loading").style.display = "block"
