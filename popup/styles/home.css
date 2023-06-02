@@ -13,7 +13,7 @@
 }
 
 .homeScreen .inbox:hover {
-	background: #eeeeee;
+	background: var(--light-gray);
 }
 
 .homeScreen .inbox:has(.dot) {
@@ -49,6 +49,6 @@
 
 .homeScreen .inbox .address {
 	font-size: 10px;
-	color: var(--light-gray);
+	color: var(--medium-gray);
 	margin-top: 1.5px;
 }

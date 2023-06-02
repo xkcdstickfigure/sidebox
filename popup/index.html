@@ -65,26 +65,30 @@
 		</div>
 
 		<div class="screen messageScreen" data-screen="message">
-			<header>
-				<button class="back">
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						viewBox="0 0 24 24"
-						fill="none"
-						stroke="currentColor"
-						stroke-width="2"
-						stroke-linecap="round"
-						stroke-linejoin="round"
-					>
-						<line x1="19" y1="12" x2="5" y2="12" />
-						<polyline points="12 19 5 12 12 5" />
-					</svg>
-				</button>
+			<div class="inner">
+				<header>
+					<button class="back">
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="2"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+						>
+							<line x1="19" y1="12" x2="5" y2="12" />
+							<polyline points="12 19 5 12 12 5" />
+						</svg>
+					</button>
 
-				<p class="subject"></p>
-				<p class="from"></p>
-				<p class="date"></p>
-			</header>
+					<p class="subject"></p>
+					<p class="from"></p>
+					<p class="date"></p>
+				</header>
+
+				<iframe class="content" sandbox=""></iframe>
+			</div>
 		</div>
 
 		<script src="scripts/main.js" type="module"></script>

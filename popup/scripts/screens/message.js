@@ -16,4 +16,9 @@ export const renderMessageScreen = (
 		dateStyle: "medium",
 		timeStyle: "short",
 	}).format(new Date(date))
+	$(".content").srcdoc = ""
+
+	api.messageGet(id).then((data) => {
+		$(".content").srcdoc = data.body
+	})
 }

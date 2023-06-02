@@ -41,7 +41,7 @@
 .inboxScreen .loading,
 .inboxScreen .empty {
 	font-size: 10px;
-	color: var(--light-gray);
+	color: var(--medium-gray);
 	margin-top: 16px;
 	text-align: center;
 }
@@ -56,19 +56,19 @@
 }
 
 .inboxScreen .message:hover {
-	background: #eeeeee;
+	background: var(--light-gray);
 }
 
 .inboxScreen .message .subject {
-	font-size: 14px;
+	font-size: 12px;
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
 }
 
 .inboxScreen .message .from {
-	font-size: 10px;
-	color: var(--light-gray);
+	font-size: 8px;
+	color: var(--medium-gray);
 	margin-top: 1.5px;
 	overflow: hidden;
 	text-overflow: ellipsis;
