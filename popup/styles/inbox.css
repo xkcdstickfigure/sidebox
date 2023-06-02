@@ -70,3 +70,51 @@
 	text-overflow: ellipsis;
 	white-space: nowrap;
 }
+
+.inboxScreen .deleteConfirm {
+	display: none;
+	position: absolute;
+	bottom: 0;
+	padding: 12px;
+}
+
+.inboxScreen .deleteConfirm .popup {
+	background: white;
+	border: solid 1px var(--light-gray);
+	border-radius: 8px;
+	padding: 8px;
+}
+
+.inboxScreen .deleteConfirm .title {
+	font-size: 16px;
+	font-weight: 500;
+}
+
+.inboxScreen .deleteConfirm .description {
+	font-size: 12px;
+	color: var(--gray);
+	margin-top: 2px;
+}
+
+.inboxScreen .deleteConfirm .buttons {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	column-gap: 8px;
+	margin-top: 8px;
+}
+
+.inboxScreen .deleteConfirm button {
+	text-align: center;
+	padding: 4px 0;
+	border-radius: 8px;
+}
+
+.inboxScreen .deleteConfirm .cancel {
+	background: var(--light-gray);
+	color: var(--gray);
+}
+
+.inboxScreen .deleteConfirm .confirm {
+	background: var(--red);
+	color: white;
+}

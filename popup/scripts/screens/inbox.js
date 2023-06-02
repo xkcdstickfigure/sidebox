@@ -5,8 +5,18 @@ import { censorAddress } from "../util/address.js"
 const screen = document.querySelector(".inboxScreen")
 const $ = (str) => screen.querySelector(str)
 
-// back
+// back button
 $(".back").onclick = () => setScreen("home")
+
+// delete button
+$(".delete").onclick = () => {
+	$(".deleteConfirm").style.display = "block"
+}
+
+// cancel delete button
+$(".deleteConfirm .cancel").onclick = () => {
+	$(".deleteConfirm").style.display = "none"
+}
 
 export const renderInboxScreen = (api, { id, name, address }) => {
 	// name
@@ -25,6 +35,9 @@ export const renderInboxScreen = (api, { id, name, address }) => {
 		revealedAddressText.innerText = address
 		addressButton.replaceWith(revealedAddressText)
 	}
+
+	// delete
+	$(".deleteConfirm").style.display = "none"
 
 	// loading
 	$(".loading").style.display = "block"
