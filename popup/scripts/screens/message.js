@@ -17,10 +17,12 @@ export const renderMessageScreen = (
 		dateStyle: "medium",
 		timeStyle: "short",
 	}).format(new Date(date))
+	$(".content").style.display = "none"
 	$(".content").srcdoc = ""
 
 	api.messageGet(id).then((data) => {
 		$(".content").srcdoc = htmlContentPrefix + data.body
+		$(".content").style.display = "block"
 	})
 }
 
