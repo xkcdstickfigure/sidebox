@@ -1,0 +1,28 @@
+.messageScreen header {
+	padding: 16px;
+}
+
+.messageScreen .back svg {
+	display: block;
+	width: 16px;
+	height: 16px;
+	color: var(--dark-gray);
+}
+
+.messageScreen .subject {
+	font-size: 20px;
+	font-weight: 500;
+	margin-top: 12px;
+}
+
+.messageScreen .from {
+	font-size: 10px;
+	color: var(--dark-gray);
+	margin-top: 4px;
+}
+
+.messageScreen .date {
+	font-size: 10px;
+	color: var(--dark-gray);
+	margin-top: 4px;
+}

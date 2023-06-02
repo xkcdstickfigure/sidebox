@@ -1,13 +1,14 @@
 import { setScreen } from "../util/screen.js"
+import { renderMessageScreen } from "./message.js"
 import { censorAddress } from "../util/address.js"
 
 const screen = document.querySelector(".inboxScreen")
 const $ = (str) => screen.querySelector(str)
 
-export const renderInboxScreen = (api, { id, name, address }) => {
-	// back
-	$(".back").onclick = () => setScreen("home")
+// back
+$(".back").onclick = () => setScreen("home")
 
+export const renderInboxScreen = (api, { id, name, address }) => {
 	// name
 	$(".name").innerText = name
 
@@ -45,9 +46,14 @@ export const renderInboxScreen = (api, { id, name, address }) => {
 	})
 }
 
-const createMessage = (api, { id, fromAddress, subject, date }) => {
+const createMessage = (api, { id, fromName, fromAddress, subject, date }) => {
 	const message = document.createElement("button")
 	message.className = "message"
+
+	message.onclick = () => {
+		renderMessageScreen(api, { id, fromName, fromAddress, subject, date })
+		setScreen("message")
+	}
 
 	const subjectText = document.createElement("p")
 	subjectText.className = "subject"

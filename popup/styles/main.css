@@ -1,6 +1,7 @@
 @import url("./loading.css");
 @import url("./home.css");
 @import url("./inbox.css");
+@import url("./message.css");
 
 * {
 	margin: 0;
@@ -10,11 +11,19 @@
 		Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
 }
 
+button {
+	background: none;
+	border: none;
+	padding: 0;
+	display: block;
+	text-align: left;
+}
+
 :root {
 	--shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
 	--background: #fff7d9;
 	--light-gray: #737373;
-	--dark-gray: #262626;
+	--dark-gray: #525252;
 	--red: #ef4444;
 	--blue: #2563eb;
 }

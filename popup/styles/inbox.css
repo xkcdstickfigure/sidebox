@@ -1,20 +1,11 @@
-.inboxScreen {
-	padding: 16px 0;
-}
-
 .inboxScreen header {
-	padding: 0 16px;
+	padding: 16px;
+	padding-bottom: 0;
 }
 
 .inboxScreen .buttons {
 	display: flex;
 	justify-content: space-between;
-}
-
-.inboxScreen .buttons button {
-	background: none;
-	border: none;
-	padding: 0;
 }
 
 .inboxScreen .buttons svg {
@@ -39,12 +30,8 @@
 
 .inboxScreen .address {
 	font-size: 10px;
-	color: var(--light-gray);
+	color: var(--dark-gray);
 	margin-top: 4px;
-	background: none;
-	border: none;
-	text-align: left;
-	padding: 0;
 }
 
 .inboxScreen button.address {
@@ -65,9 +52,6 @@
 
 .inboxScreen .message {
 	padding: 8px 16px;
-	background: none;
-	text-align: left;
-	border: none;
 	width: 100%;
 }
 
