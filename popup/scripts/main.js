@@ -1,6 +1,6 @@
 import { API } from "../../api.js"
-import { setScreen } from "./screen.js"
-import { renderHomeScreen } from "./home.js"
+import { setScreen } from "./util/screen.js"
+import { renderHomeScreen } from "./screens/home.js"
 
 setScreen("loading")
 

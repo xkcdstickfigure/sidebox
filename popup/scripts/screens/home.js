@@ -1,6 +1,7 @@
-import { getColor } from "./color.js"
-import { setScreen } from "./screen.js"
+import { getColor } from "../util/color.js"
+import { setScreen } from "../util/screen.js"
 import { renderInboxScreen } from "./inbox.js"
+import { censorAddress } from "../util/address.js"
 
 const inboxes = document.querySelector(".homeScreen .inboxes")
 
@@ -47,10 +48,4 @@ const createInbox = (id, name, address, unread) => {
 	info.append(nameText, addressText)
 	inbox.append(icon, info)
 	return inbox
-}
-
-const censorAddress = (address) => {
-	const username = address.split("@")[0]
-	const domain = address.split("@")[1]
-	return `${username.substring(0, 4)}****@${domain}`
 }

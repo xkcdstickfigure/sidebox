@@ -2,8 +2,17 @@
 	padding: 16px 0;
 }
 
-.inboxScreen .title {
+.inboxScreen header {
+	padding: 0 16px;
+}
+
+.inboxScreen .name {
 	font-size: 20px;
 	font-weight: 500;
-	padding: 0 16px;
+}
+
+.inboxScreen .address {
+	font-size: 10px;
+	color: #888888;
+	margin-top: 4px;
 }
