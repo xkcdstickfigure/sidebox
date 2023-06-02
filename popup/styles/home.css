@@ -33,7 +33,7 @@
 .homeScreen .inbox .dot {
 	width: 6px;
 	height: 6px;
-	background: #3657ff;
+	background: var(--blue);
 	border-radius: 50%;
 	margin-right: 5px;
 }
@@ -42,7 +42,7 @@
 	width: 32px;
 	height: 32px;
 	border-radius: 4px;
-	color: #ffffff;
+	color: white;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -59,6 +59,6 @@
 
 .homeScreen .inbox .address {
 	font-size: 10px;
-	color: #888888;
+	color: var(--light-gray);
 	margin-top: 1.5px;
 }

@@ -1,8 +1,12 @@
+import { setScreen } from "../util/screen.js"
 import { censorAddress } from "../util/address.js"
 
 const screen = document.querySelector(".inboxScreen")
 
 export const renderInboxScreen = ({ id, name, address }) => {
+	// back
+	screen.querySelector(".back").onclick = () => setScreen("home")
+
 	// name
 	screen.querySelector(".name").innerText = name
 

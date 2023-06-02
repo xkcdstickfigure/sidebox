@@ -6,14 +6,40 @@
 	padding: 0 16px;
 }
 
+.inboxScreen .buttons {
+	display: flex;
+	justify-content: space-between;
+}
+
+.inboxScreen .buttons button {
+	background: none;
+	border: none;
+	padding: 0;
+}
+
+.inboxScreen .buttons svg {
+	display: block;
+	width: 16px;
+	height: 16px;
+}
+
+.inboxScreen .back {
+	color: var(--dark-gray);
+}
+
+.inboxScreen .delete {
+	color: var(--red);
+}
+
 .inboxScreen .name {
 	font-size: 20px;
 	font-weight: 500;
+	margin-top: 12px;
 }
 
 .inboxScreen .address {
 	font-size: 10px;
-	color: #888888;
+	color: var(--light-gray);
 	margin-top: 4px;
 	background: none;
 	border: none;
@@ -22,5 +48,5 @@
 }
 
 .inboxScreen button.address {
-	cursor: pointer;
+	cursor: default;
 }

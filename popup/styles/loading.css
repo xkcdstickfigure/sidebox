@@ -1,5 +1,5 @@
 .loadingScreen .inner {
-	background: #fff7d9;
+	background: var(--background);
 	display: flex;
 	justify-content: center;
 	align-items: center;
