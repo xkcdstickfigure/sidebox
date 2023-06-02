@@ -49,6 +49,6 @@
 
 .homeScreen .inbox .address {
 	font-size: 10px;
-	color: var(--medium-gray);
+	color: var(--gray);
 	margin-top: 1.5px;
 }

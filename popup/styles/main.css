@@ -23,8 +23,7 @@ button {
 	--shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
 	--background: #fff7d9;
 	--light-gray: #eeeeee;
-	--medium-gray: #737373;
-	--dark-gray: #525252;
+	--gray: #737373;
 	--red: #ef4444;
 	--blue: #2563eb;
 }

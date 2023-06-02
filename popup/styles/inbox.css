@@ -14,10 +14,6 @@
 	height: 16px;
 }
 
-.inboxScreen .back {
-	color: var(--dark-gray);
-}
-
 .inboxScreen .delete {
 	color: var(--red);
 }
@@ -30,7 +26,7 @@
 
 .inboxScreen .address {
 	font-size: 10px;
-	color: var(--dark-gray);
+	color: var(--gray);
 	margin-top: 4px;
 }
 
@@ -41,7 +37,7 @@
 .inboxScreen .loading,
 .inboxScreen .empty {
 	font-size: 10px;
-	color: var(--medium-gray);
+	color: var(--gray);
 	margin-top: 16px;
 	text-align: center;
 }
@@ -68,7 +64,7 @@
 
 .inboxScreen .message .from {
 	font-size: 10px;
-	color: var(--medium-gray);
+	color: var(--gray);
 	margin-top: 1.5px;
 	overflow: hidden;
 	text-overflow: ellipsis;
