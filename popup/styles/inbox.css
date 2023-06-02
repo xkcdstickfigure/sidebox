@@ -1,0 +1,9 @@
+.inboxScreen {
+	padding: 16px 0;
+}
+
+.inboxScreen .title {
+	font-size: 20px;
+	font-weight: 500;
+	padding: 0 16px;
+}

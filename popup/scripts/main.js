@@ -1,12 +1,7 @@
 import { API } from "../../api.js"
+import { setScreen } from "./screen.js"
 import { renderHomeScreen } from "./home.js"
 
-// screens
-const setScreen = (name) => {
-	document.querySelectorAll(".screen").forEach((elem) => {
-		elem.style.display = elem.dataset.screen === name ? "block" : "none"
-	})
-}
 setScreen("loading")
 
 // retreive data from storage
@@ -32,7 +27,7 @@ chrome.storage.local.get(null, ({ token, accountCache }) => {
 
 			// render home screen
 			renderHomeScreen(data)
-			setScreen("home")
+			if (!accountCache) setScreen("home")
 		})
 		.catch((err) => {
 			// launch auth flow if bad token

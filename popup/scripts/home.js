@@ -1,4 +1,6 @@
 import { getColor } from "./color.js"
+import { setScreen } from "./screen.js"
+import { renderInboxScreen } from "./inbox.js"
 
 const inboxes = document.querySelector(".homeScreen .inboxes")
 
@@ -12,8 +14,13 @@ export const renderHomeScreen = (account) => {
 }
 
 const createInbox = (id, name, address, unread) => {
-	const inbox = document.createElement("div")
+	const inbox = document.createElement("button")
 	inbox.className = "inbox"
+
+	inbox.onclick = () => {
+		renderInboxScreen({ id, name, address })
+		setScreen("inbox")
+	}
 
 	const icon = document.createElement("div")
 	icon.className = "icon"
