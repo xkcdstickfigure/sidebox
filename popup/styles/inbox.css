@@ -82,7 +82,7 @@
 	background: white;
 	border: solid 1px var(--light-gray);
 	border-radius: 8px;
-	padding: 8px;
+	padding: 12px;
 }
 
 .inboxScreen .deleteConfirm .title {
@@ -91,7 +91,7 @@
 }
 
 .inboxScreen .deleteConfirm .description {
-	font-size: 12px;
+	font-size: 10px;
 	color: var(--gray);
 	margin-top: 2px;
 }
@@ -100,7 +100,7 @@
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	column-gap: 8px;
-	margin-top: 8px;
+	margin-top: 12px;
 }
 
 .inboxScreen .deleteConfirm button {
