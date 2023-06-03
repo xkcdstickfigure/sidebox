@@ -37,16 +37,25 @@ export const renderHomeScreen = (api, account) => {
 		api
 			.inboxCreate(name)
 			.then((data) => {
-				document.write(JSON.stringify(data))
+				// move to inbox screen
+				renderInboxScreen(api, data)
+				setScreen("inbox")
+
+				// add inbox to list
+				$(".inboxes").prepend(createInbox(api, data))
+
+				// close form
+				$(".createForm").reset()
+				$(".createForm").style.display = "none"
 			})
 			.finally(() => {
-				$(".createForm .confirm").disabled = true
+				$(".createForm .confirm").disabled = false
 			})
 	}
 }
 
 // create inbox list row
-const createInbox = (api, { id, name, address, unread }) => {
+const createInbox = (api, { id, name, address, unread = false }) => {
 	const inbox = document.createElement("button")
 	inbox.className = "inbox"
 	inbox.dataset.inboxId = id
