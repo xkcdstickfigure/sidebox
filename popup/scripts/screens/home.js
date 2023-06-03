@@ -38,7 +38,7 @@ export const renderHomeScreen = (api, account) => {
 			.inboxCreate(name)
 			.then((data) => {
 				// move to inbox screen
-				renderInboxScreen(api, data)
+				renderInboxScreen(api, data, true)
 				setScreen("inbox")
 
 				// add inbox to list
@@ -61,7 +61,7 @@ const createInbox = (api, { id, name, address, unread = false }) => {
 	inbox.dataset.inboxId = id
 
 	inbox.onclick = () => {
-		renderInboxScreen(api, { id, name, address })
+		renderInboxScreen(api, { id, name, address }, false)
 		setScreen("inbox")
 	}
 

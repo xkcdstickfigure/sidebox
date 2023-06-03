@@ -19,23 +19,29 @@ $(".deleteConfirm .cancel").onclick = () => {
 }
 
 // render screen
-export const renderInboxScreen = (api, { id, name, address }) => {
+export const renderInboxScreen = (
+	api,
+	{ id, name, address },
+	revealAddress
+) => {
 	// name
 	$(".name").innerText = name
 
-	// address
+	// hidden address
 	const addressButton = document.createElement("button")
 	addressButton.className = "address"
 	addressButton.innerText = censorAddress(address)
 	$(".address").replaceWith(addressButton)
 
-	// click to reveal full address
-	addressButton.onclick = () => {
-		const revealedAddressText = document.createElement("p")
-		revealedAddressText.className = "address"
-		revealedAddressText.innerText = address
-		addressButton.replaceWith(revealedAddressText)
-	}
+	// revealed address
+	const revealedAddressText = document.createElement("p")
+	revealedAddressText.className = "address"
+	revealedAddressText.innerText = address
+
+	// click to reveal address
+	if (revealAddress) addressButton.replaceWith(revealedAddressText)
+	else
+		addressButton.onclick = () => addressButton.replaceWith(revealedAddressText)
 
 	// delete
 	$(".deleteConfirm").style.display = "none"
