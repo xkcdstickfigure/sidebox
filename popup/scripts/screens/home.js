@@ -3,13 +3,49 @@ import { renderInboxScreen } from "./inbox.js"
 import { censorAddress } from "../util/address.js"
 import { getColor } from "../util/color.js"
 
-const inboxes = document.querySelector(".homeScreen .inboxes")
+const screen = document.querySelector(".homeScreen")
+const $ = (str) => screen.querySelector(str)
 
-export const renderHomeScreen = (api, account) => {
-	inboxes.innerHTML = ""
-	inboxes.append(...account.inboxes.map((inbox) => createInbox(api, inbox)))
+// create button
+$(".create").onclick = () => {
+	$(".createForm").style.display = "block"
+	$(".createForm input").focus()
 }
 
+// cancel create button
+$(".createForm .cancel").onclick = () => {
+	$(".createForm").style.display = "none"
+}
+
+// render screen
+export const renderHomeScreen = (api, account) => {
+	// inboxes list
+	$(".inboxes").innerHTML = ""
+	$(".inboxes").append(
+		...account.inboxes.map((inbox) => createInbox(api, inbox))
+	)
+
+	// create inbox
+	$(".createForm").onsubmit = (e) => {
+		e.preventDefault()
+
+		const name = $(".createForm input").value.trim()
+		if (!name) return
+
+		$(".createForm .confirm").disabled = true
+
+		api
+			.inboxCreate(name)
+			.then((data) => {
+				document.write(JSON.stringify(data))
+			})
+			.finally(() => {
+				$(".createForm .confirm").disabled = true
+			})
+	}
+}
+
+// create inbox list row
 const createInbox = (api, { id, name, address, unread }) => {
 	const inbox = document.createElement("button")
 	inbox.className = "inbox"

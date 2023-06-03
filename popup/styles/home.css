@@ -5,7 +5,7 @@
 	padding-bottom: 4px;
 }
 
-.homeScreen .title {
+.homeScreen header .title {
 	font-size: 20px;
 	font-weight: 500;
 }
@@ -59,4 +59,59 @@
 	font-size: 10px;
 	color: var(--gray);
 	margin-top: 1.5px;
+}
+
+.homeScreen .createForm {
+	display: none;
+	position: absolute;
+	bottom: 0;
+	padding: 12px;
+	width: 100%;
+}
+
+.homeScreen .createForm .popup {
+	background: white;
+	border: solid 1px var(--light-gray);
+	border-radius: 8px;
+	padding: 12px;
+}
+
+.homeScreen .createForm .title {
+	font-size: 16px;
+	font-weight: 500;
+}
+
+.homeScreen .createForm input {
+	width: 100%;
+	padding: 6px 12px;
+	border: solid 1px var(--light-gray);
+	border-radius: 8px;
+	margin-top: 4px;
+}
+
+.homeScreen .createForm input::placeholder {
+	color: var(--gray);
+}
+
+.homeScreen .createForm .buttons {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	column-gap: 8px;
+	margin-top: 8px;
+}
+
+.homeScreen .createForm button {
+	text-align: center;
+	padding: 4px 0;
+	border-radius: 8px;
+}
+
+.homeScreen .createForm .cancel {
+	background: var(--light-gray);
+	color: var(--gray);
+}
+
+.homeScreen .createForm .confirm {
+	background: var(--blue);
+	color: white;
 }

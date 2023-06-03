@@ -76,6 +76,7 @@
 	position: absolute;
 	bottom: 0;
 	padding: 12px;
+	width: 100%;
 }
 
 .inboxScreen .deleteConfirm .popup {

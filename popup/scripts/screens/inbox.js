@@ -18,6 +18,7 @@ $(".deleteConfirm .cancel").onclick = () => {
 	$(".deleteConfirm").style.display = "none"
 }
 
+// render screen
 export const renderInboxScreen = (api, { id, name, address }) => {
 	// name
 	$(".name").innerText = name
@@ -70,6 +71,7 @@ export const renderInboxScreen = (api, { id, name, address }) => {
 	})
 }
 
+// create message list row
 const createMessage = (api, { id, fromName, fromAddress, subject, date }) => {
 	const message = document.createElement("button")
 	message.className = "message"
