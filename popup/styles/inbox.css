@@ -3,12 +3,12 @@
 	padding-bottom: 0;
 }
 
-.inboxScreen .buttons {
+.inboxScreen header .buttons {
 	display: flex;
 	justify-content: space-between;
 }
 
-.inboxScreen .buttons svg {
+.inboxScreen header .buttons svg {
 	display: block;
 	width: 16px;
 	height: 16px;
