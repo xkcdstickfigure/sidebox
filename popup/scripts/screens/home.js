@@ -1,7 +1,7 @@
-import { getColor } from "../util/color.js"
 import { setScreen } from "../util/screen.js"
 import { renderInboxScreen } from "./inbox.js"
 import { censorAddress } from "../util/address.js"
+import { getColor } from "../util/color.js"
 
 const inboxes = document.querySelector(".homeScreen .inboxes")
 
@@ -26,7 +26,6 @@ const createInbox = (api, { id, name, address, unread }) => {
 	icon.innerText = name[0].toUpperCase()
 
 	const info = document.createElement("div")
-	info.className = "info"
 
 	const nameText = document.createElement("p")
 	nameText.className = "name"

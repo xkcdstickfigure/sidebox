@@ -37,10 +37,7 @@
 	justify-content: center;
 	align-items: center;
 	font-size: 16px;
-}
-
-.homeScreen .inbox .info {
-	margin-left: 8px;
+	margin-right: 8px;
 }
 
 .homeScreen .inbox .name {
