@@ -6,14 +6,14 @@
 	"icons": {
 		"64": "icons/64.png"
 	},
-	"permissions": ["storage", "{{SERVER}}/*"],
+	"permissions": ["storage", "*://{{SERVER}}/*"],
 	"browser_action": {
 		"default_popup": "popup/index.html",
 		"default_area": "navbar"
 	},
 	"content_scripts": [
 		{
-			"matches": ["{{SERVER}}/*"],
+			"matches": ["*://{{SERVER}}/*"],
 			"js": ["content-scripts/login.js"]
 		}
 	],
