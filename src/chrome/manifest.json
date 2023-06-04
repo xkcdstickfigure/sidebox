@@ -7,13 +7,13 @@
 		"64": "icons/64.png"
 	},
 	"permissions": ["storage"],
-	"host_permissions": ["https://boxes.taiven.com/*"],
+	"host_permissions": ["{{SERVER}}/*"],
 	"action": {
 		"default_popup": "popup/index.html"
 	},
 	"content_scripts": [
 		{
-			"matches": ["https://boxes.taiven.com/*"],
+			"matches": ["{{SERVER}}/*"],
 			"js": ["content-scripts/login.js"]
 		}
 	],
