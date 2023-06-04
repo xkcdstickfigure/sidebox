@@ -16,5 +16,10 @@
 			"matches": ["https://boxes.taiven.com/*"],
 			"js": ["content-scripts/login.js"]
 		}
-	]
+	],
+	"background": {
+		"scripts": ["background.js"],
+		"persistent": false,
+		"type": "module"
+	}
 }

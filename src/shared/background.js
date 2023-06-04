@@ -1,4 +1,4 @@
-import { API } from "./api.js"
+import { API } from "../api.js"
 
 chrome.runtime.onMessage.addListener((request, sender) => {
 	if (request.type === "boxes-auth" && sender.tab) {
@@ -7,11 +7,8 @@ chrome.runtime.onMessage.addListener((request, sender) => {
 		const state = params.get("state")
 
 		if (code)
-			new API()
-				.login(code, state)
-				.then(({ token }) => {
-					chrome.storage.local.set({ token })
-				})
-				.catch(console.error)
+			new API().login(code, state).then(({ token }) => {
+				chrome.storage.local.set({ token })
+			})
 	}
 })
