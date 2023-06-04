@@ -1,4 +1,4 @@
-const server = "http://localhost:3000"
+const server = "https://boxes.taiven.com"
 
 export class API {
 	#token

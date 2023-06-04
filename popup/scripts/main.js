@@ -43,7 +43,7 @@ chrome.storage.local.get(null, ({ token, accountCache }) => {
 
 // reauthenticate
 const launchAuthFlow = () => {
-	window.open("http://localhost:3000/auth")
+	window.open("https://boxes.taiven.com/auth")
 }
 
 // account refetch interval
