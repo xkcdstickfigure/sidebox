@@ -1,6 +1,6 @@
 import { API } from "../../api.js"
 import { setScreen } from "./util/screen.js"
-import { renderHomeScreen } from "./screens/home.js"
+import { renderHomeScreen, renderInboxList } from "./screens/home.js"
 
 setScreen("loading")
 
@@ -31,6 +31,9 @@ chrome.storage.local.get(null, ({ token, accountCache }) => {
 			// render home screen
 			renderHomeScreen(api, account)
 			if (!accountCache) setScreen("home")
+
+			// account refetch interval
+			startAccountRefetchInterval(api)
 		})
 		.catch((err) => {
 			// launch auth flow if bad token
@@ -42,3 +45,15 @@ chrome.storage.local.get(null, ({ token, accountCache }) => {
 const launchAuthFlow = () => {
 	window.open("http://localhost:3000/auth")
 }
+
+// account refetch interval
+const startAccountRefetchInterval = (api) =>
+	setInterval(() => {
+		api.account().then((account) => {
+			// cache account data
+			chrome.storage.local.set({ accountCache: account })
+
+			// render inbox list
+			renderInboxList(api, account.inboxes)
+		})
+	}, 5000)

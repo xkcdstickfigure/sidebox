@@ -19,11 +19,8 @@ $(".createForm .cancel").onclick = () => {
 
 // render screen
 export const renderHomeScreen = (api, account) => {
-	// inboxes list
-	$(".inboxes").innerHTML = ""
-	$(".inboxes").append(
-		...account.inboxes.map((inbox) => createInbox(api, inbox))
-	)
+	// inbox list
+	renderInboxList(api, account.inboxes)
 
 	// create inbox
 	$(".createForm").onsubmit = (e) => {
@@ -52,6 +49,12 @@ export const renderHomeScreen = (api, account) => {
 				$(".createForm .confirm").disabled = false
 			})
 	}
+}
+
+// render inbox list
+export const renderInboxList = (api, inboxes) => {
+	$(".inboxes").innerHTML = ""
+	$(".inboxes").append(...inboxes.map((inbox) => createInbox(api, inbox)))
 }
 
 // create inbox list row
