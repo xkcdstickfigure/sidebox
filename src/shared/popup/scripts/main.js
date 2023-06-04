@@ -23,7 +23,10 @@ chrome.storage.local.get(null, ({ token, accountCache }) => {
 		.account()
 		.then((account) => {
 			// open update url
-			if (account.updateUrl) chrome.tabs.create({ url: account.updateUrl })
+			if (account.updateUrl) {
+				chrome.tabs.create({ url: account.updateUrl })
+				return window.close()
+			}
 
 			// cache account data
 			chrome.storage.local.set({ accountCache: account })
@@ -44,6 +47,7 @@ chrome.storage.local.get(null, ({ token, accountCache }) => {
 // reauthenticate
 const launchAuthFlow = () => {
 	chrome.tabs.create({ url: `${server}/auth` })
+	window.close()
 }
 
 // account refetch interval
