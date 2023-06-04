@@ -23,7 +23,7 @@ export class API {
 						res
 							.json()
 							.then((err) => reject(err.errorName))
-							.catch(resolve)
+							.catch(reject)
 				})
 				.catch(reject)
 		)
