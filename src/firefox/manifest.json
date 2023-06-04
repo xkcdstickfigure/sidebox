@@ -6,19 +6,15 @@
 	"icons": {
 		"64": "icons/64.png"
 	},
-	"permissions": ["storage"],
-	"host_permissions": ["https://boxes.taiven.com/*"],
-	"action": {
-		"default_popup": "popup/index.html"
+	"permissions": ["storage", "https://boxes.taiven.com/*"],
+	"browser_action": {
+		"default_popup": "popup/index.html",
+		"default_area": "navbar"
 	},
 	"content_scripts": [
 		{
 			"matches": ["https://boxes.taiven.com/*"],
 			"js": ["content-scripts/login.js"]
 		}
-	],
-	"background": {
-		"service_worker": "service-worker.js",
-		"type": "module"
-	}
+	]
 }
