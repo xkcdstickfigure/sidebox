@@ -28,7 +28,7 @@ export class API {
 				.catch(reject)
 		)
 
-	login = (code) => this.#fetch("POST", "login", { code })
+	login = (code, state) => this.#fetch("POST", "login", { code, state })
 	account = () => this.#fetch("GET", "account")
 	inboxCreate = (name) => this.#fetch("POST", "inbox", { name })
 	inboxGet = (id) => this.#fetch("GET", `inbox/${encodeURIComponent(id)}`)
