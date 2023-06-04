@@ -23,7 +23,7 @@ chrome.storage.local.get(null, ({ token, accountCache }) => {
 		.account()
 		.then((account) => {
 			// open update url
-			if (account.updateUrl) window.open(account.updateUrl)
+			if (account.updateUrl) chrome.tabs.create({ url: account.updateUrl })
 
 			// cache account data
 			chrome.storage.local.set({ accountCache: account })
@@ -43,7 +43,7 @@ chrome.storage.local.get(null, ({ token, accountCache }) => {
 
 // reauthenticate
 const launchAuthFlow = () => {
-	window.open("https://boxes.taiven.com/auth")
+	chrome.tabs.create({ url: "https://boxes.taiven.com/auth" })
 }
 
 // account refetch interval
