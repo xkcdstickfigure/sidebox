@@ -5,9 +5,6 @@ import { censorAddress } from "../util/address.js"
 const screen = document.querySelector(".inboxScreen")
 const $ = (str) => screen.querySelector(str)
 
-// back button
-$(".back").onclick = () => setScreen("home")
-
 // delete button
 $(".delete").onclick = () => {
 	$(".deleteConfirm").style.display = "block"
@@ -43,6 +40,13 @@ export const renderInboxScreen = (
 	else
 		addressButton.onclick = () => addressButton.replaceWith(revealedAddressText)
 
+	// back button
+	let onBack
+	$(".back").onclick = () => {
+		onBack?.()
+		setScreen("home")
+	}
+
 	// delete
 	$(".deleteConfirm").style.display = "none"
 	$(".deleteConfirm .confirm").onclick = () => {
@@ -63,18 +67,36 @@ export const renderInboxScreen = (
 	$(".messages").style.display = "none"
 
 	// fetch messages
-	api.inboxGet(id).then((data) => {
+	api.inboxGet(id).then((inbox) => {
+		// render messages list
 		$(".loading").style.display = "none"
+		renderMessagesList(api, inbox.messages)
 
-		if (data.messages.length === 0) $(".empty").style.display = "block"
-		else {
-			$(".messages").style.display = "block"
-			$(".messages").innerHTML = ""
-			$(".messages").append(
-				...data.messages.map((message) => createMessage(api, message))
-			)
-		}
+		// inbox refetch interval
+		const interval = startInboxRefetchInterval(api, id)
+		onBack = () => clearInterval(interval)
 	})
+}
+
+// inbox refetch interval
+const startInboxRefetchInterval = (api, id) =>
+	setInterval(() => {
+		api.inboxGet(id).then((inbox) => renderMessagesList(api, inbox.messages))
+	}, 5000)
+
+// render messages list
+const renderMessagesList = (api, messages) => {
+	if (messages.length === 0) {
+		$(".empty").style.display = "block"
+		$(".messages").style.display = "none"
+	} else {
+		$(".empty").style.display = "none"
+		$(".messages").style.display = "block"
+		$(".messages").innerHTML = ""
+		$(".messages").append(
+			...messages.map((message) => createMessage(api, message))
+		)
+	}
 }
 
 // create message list row
