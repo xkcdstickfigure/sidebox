@@ -1,4 +1,4 @@
-const server = "https://boxes.taiven.com"
+export const server = "https://boxes.taiven.com"
 
 export class API {
 	#token

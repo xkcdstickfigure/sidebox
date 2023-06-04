@@ -1,4 +1,4 @@
-import { API } from "../../api.js"
+import { API, server } from "../../api.js"
 import { setScreen } from "./util/screen.js"
 import { renderHomeScreen, renderInboxList } from "./screens/home.js"
 
@@ -43,7 +43,7 @@ chrome.storage.local.get(null, ({ token, accountCache }) => {
 
 // reauthenticate
 const launchAuthFlow = () => {
-	chrome.tabs.create({ url: "https://boxes.taiven.com/auth" })
+	chrome.tabs.create({ url: `${server}/auth` })
 }
 
 // account refetch interval
