@@ -22,6 +22,9 @@ chrome.storage.local.get(null, ({ token, accountCache }) => {
 	api
 		.account()
 		.then((data) => {
+			// open update url
+			if (data.updateUrl) window.open(data.updateUrl)
+
 			// store account data
 			chrome.storage.local.set({ accountCache: data })
 
