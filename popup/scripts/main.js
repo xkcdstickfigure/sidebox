@@ -21,15 +21,15 @@ chrome.storage.local.get(null, ({ token, accountCache }) => {
 	// fetch account data
 	api
 		.account()
-		.then((data) => {
+		.then((account) => {
 			// open update url
-			if (data.updateUrl) window.open(data.updateUrl)
+			if (account.updateUrl) window.open(account.updateUrl)
 
-			// store account data
-			chrome.storage.local.set({ accountCache: data })
+			// cache account data
+			chrome.storage.local.set({ accountCache: account })
 
 			// render home screen
-			renderHomeScreen(api, data)
+			renderHomeScreen(api, account)
 			if (!accountCache) setScreen("home")
 		})
 		.catch((err) => {
