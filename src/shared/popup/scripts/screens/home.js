@@ -88,6 +88,7 @@ const createInbox = (api, { id, name, address, unread = false }) => {
 	addressText.innerText = censorAddress(address)
 
 	if (unread) {
+		inbox.classList.add("unread")
 		const unreadDot = document.createElement("div")
 		unreadDot.className = "dot"
 		inbox.append(unreadDot)

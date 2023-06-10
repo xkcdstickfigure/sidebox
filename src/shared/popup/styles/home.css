@@ -27,7 +27,7 @@
 	background: var(--light-gray);
 }
 
-.homeScreen .inbox:has(.dot) {
+.homeScreen .inbox.unread {
 	padding-left: 5px;
 }
 
