@@ -64,7 +64,8 @@ const createInbox = (api, { id, name, address, unread = false }) => {
 	inbox.dataset.inboxId = id
 
 	inbox.onclick = () => {
-		// remove unread dot
+		// display inbox as read
+		inbox.classList.remove("unread")
 		inbox.querySelector(".dot")?.remove()
 
 		// render inbox screen
