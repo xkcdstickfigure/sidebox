@@ -5,22 +5,22 @@ import { censorAddress } from "../util/address.js"
 const screen = document.querySelector(".inboxScreen")
 const $ = (str) => screen.querySelector(str)
 
-// delete button
-$(".delete").onclick = () => {
-	$(".deleteConfirm").style.display = "block"
-}
-
-// cancel delete button
-$(".deleteConfirm .cancel").onclick = () => {
-	$(".deleteConfirm").style.display = "none"
+const setMutedIcon = (muted) => {
+	$(".mutedOn").style.display = muted ? "block" : "none"
+	$(".mutedOff").style.display = !muted ? "block" : "none"
 }
 
 // render screen
 export const renderInboxScreen = (
 	api,
-	{ id, name, address },
+	{ id, name, address, muted },
 	revealAddress
 ) => {
+	// home screen button
+	const homeScreenButton = document.querySelector(
+		`.homeScreen .inbox[data-inbox-id="${id}"]`
+	)
+
 	// name
 	$(".name").innerText = name
 
@@ -47,18 +47,37 @@ export const renderInboxScreen = (
 		setScreen("home")
 	}
 
-	// delete
+	// mute button
+	setMutedIcon(muted)
+	$(".muted").onclick = () => {
+		if (homeScreenButton) {
+			const data = JSON.parse(homeScreenButton.dataset.inbox)
+			data.muted = !data.muted
+
+			homeScreenButton.dataset.inbox = JSON.stringify(data)
+			setMutedIcon(data.muted)
+			api.inboxSetMuted(data.id, data.muted)
+		}
+	}
+
+	// delete button
+	$(".delete").onclick = () => {
+		$(".deleteConfirm").style.display = "block"
+	}
+
+	// delete confirm
 	$(".deleteConfirm").style.display = "none"
 	$(".deleteConfirm .confirm").onclick = () => {
 		api.inboxDelete(id).then(() => {
 			// remove inbox from home screen list
-			document
-				.querySelector(`.homeScreen .inbox[data-inbox-id="${id}"]`)
-				?.remove()
+			homeScreenButton?.remove()
 
 			// return to home screen
 			setScreen("home")
 		})
+	}
+	$(".deleteConfirm .cancel").onclick = () => {
+		$(".deleteConfirm").style.display = "none"
 	}
 
 	// loading
@@ -81,7 +100,7 @@ export const renderInboxScreen = (
 // inbox refetch interval
 const startInboxRefetchInterval = (api, id) =>
 	setInterval(() => {
-		api.inboxGet(id).then((inbox) => renderMessagesList(api, inbox.messages))
+		api.inboxGet(id).then((data) => renderMessagesList(api, data.messages))
 	}, 5000)
 
 // render messages list
