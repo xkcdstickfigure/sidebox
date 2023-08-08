@@ -100,7 +100,7 @@ export const renderInboxScreen = (api, inbox, revealAddress) => {
 	$(".deleteConfirm .confirm").onclick = () => {
 		api.inboxDelete(id).then(() => {
 			// remove inbox from home screen list
-			homeScreenButton?.remove()
+			getHomeScreenButton(id)?.remove()
 
 			// return to home screen
 			setScreen("home")
