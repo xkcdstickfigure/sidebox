@@ -58,10 +58,12 @@ export const renderInboxList = (api, inboxes) => {
 }
 
 // create inbox list row
-const createInbox = (api, { id, name, address, unread = false }) => {
+const createInbox = (api, data) => {
+	const { id, name, address, unread } = data
 	const inbox = document.createElement("button")
 	inbox.className = "inbox"
 	inbox.dataset.inboxId = id
+	inbox.dataset.inbox = JSON.stringify(data)
 
 	inbox.onclick = () => {
 		// display inbox as read
@@ -69,7 +71,7 @@ const createInbox = (api, { id, name, address, unread = false }) => {
 		inbox.querySelector(".dot")?.remove()
 
 		// render inbox screen
-		renderInboxScreen(api, { id, name, address }, false)
+		renderInboxScreen(api, JSON.parse(inbox.dataset.inbox), false)
 		setScreen("inbox")
 	}
 
