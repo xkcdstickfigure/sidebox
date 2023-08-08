@@ -1,6 +1,7 @@
 import { setScreen } from "../util/screen.js"
 import { renderMessageScreen } from "./message.js"
 import { censorAddress } from "../util/address.js"
+import { getIconText } from "../util/icon.js"
 
 const screen = document.querySelector(".inboxScreen")
 const $ = (str) => screen.querySelector(str)
@@ -16,7 +17,7 @@ const getHomeScreenButton = (id) => {
 
 // render screen
 export const renderInboxScreen = (api, inbox, revealAddress) => {
-	const { id, name, address } = inbox
+	let { id, name, address, muted } = inbox
 
 	// name
 	$(".name").innerText = name
@@ -44,14 +45,21 @@ export const renderInboxScreen = (api, inbox, revealAddress) => {
 		setScreen("home")
 	}
 
+	// rename button
+	$(".rename").onclick = () => {
+		$(".renameForm input").value = name
+		$(".renameForm").style.display = "block"
+		$(".renameForm input").focus()
+	}
+
 	// mute button
-	let muted = inbox.muted
 	setMutedIcon(muted)
 	$(".muted").onclick = () => {
 		muted = !muted
 		setMutedIcon(muted)
 		api.inboxSetMuted(id, muted)
 
+		// update home screen list
 		const inboxButton = getHomeScreenButton(id)
 		if (inboxButton) button.dataset.inbox = JSON.stringify({ ...inbox, muted })
 	}
@@ -59,6 +67,32 @@ export const renderInboxScreen = (api, inbox, revealAddress) => {
 	// delete button
 	$(".delete").onclick = () => {
 		$(".deleteConfirm").style.display = "block"
+	}
+
+	// rename form
+	$(".renameForm").style.display = "none"
+	$(".renameForm").onsubmit = (e) => {
+		e.preventDefault()
+
+		const newName = $(".renameForm input").value.trim()
+		if (!newName) return
+
+		name = newName
+		$(".name").innerText = name
+		api.inboxSetName(id, name)
+
+		// update home screen list
+		const inboxButton = getHomeScreenButton(id)
+		if (inboxButton) {
+			inboxButton.querySelector(".name").innerText = name
+			inboxButton.querySelector(".icon").innerText = getIconText(name)
+			inboxButton.dataset.inbox = JSON.stringify({ ...inbox, name })
+		}
+
+		$(".renameForm").style.display = "none"
+	}
+	$(".renameForm .cancel").onclick = () => {
+		$(".renameForm").style.display = "none"
 	}
 
 	// delete confirm

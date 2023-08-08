@@ -1,4 +1,6 @@
-export const getColor = (id) =>
+export const getIconText = (name) => name[0].toUpperCase()
+
+export const getIconColor = (id) =>
 	colors[parseInt(id.split("-")[0], 16) % colors.length]
 
 const colors = [

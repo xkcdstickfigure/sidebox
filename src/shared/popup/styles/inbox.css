@@ -18,11 +18,11 @@
 	display: flex;
 }
 
-.inboxScreen .muted {
+.inboxScreen header .buttonsRight > :not(:last-child) {
 	margin-right: 8px;
 }
 
-.inboxScreen .delete {
+.inboxScreen header .buttons .delete {
 	color: var(--red);
 }
 
@@ -77,6 +77,61 @@
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
+}
+
+.inboxScreen .renameForm {
+	display: none;
+	position: absolute;
+	bottom: 0;
+	padding: 12px;
+	width: 100%;
+}
+
+.inboxScreen .renameForm .popup {
+	background: white;
+	border: solid 1px var(--light-gray);
+	border-radius: 8px;
+	padding: 12px;
+}
+
+.inboxScreen .renameForm .title {
+	font-size: 16px;
+	font-weight: 500;
+}
+
+.inboxScreen .renameForm input {
+	width: 100%;
+	padding: 6px 12px;
+	border: solid 1px var(--light-gray);
+	border-radius: 8px;
+	margin-top: 4px;
+}
+
+.inboxScreen .renameForm input::placeholder {
+	color: var(--gray);
+}
+
+.inboxScreen .renameForm .buttons {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	column-gap: 8px;
+	margin-top: 8px;
+}
+
+.inboxScreen .renameForm button {
+	text-align: center;
+	padding: 4px 0;
+	border-radius: 8px;
+}
+
+.inboxScreen .renameForm .cancel {
+	background: var(--light-gray);
+	color: var(--gray);
+}
+
+.inboxScreen .renameForm .confirm {
+	background: var(--blue);
+	color: white;
 }
 
 .inboxScreen .deleteConfirm {

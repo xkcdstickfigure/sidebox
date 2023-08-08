@@ -32,6 +32,8 @@ export class API {
 	account = () => this.#fetch("GET", "account")
 	inboxCreate = (name) => this.#fetch("POST", "inbox", { name })
 	inboxGet = (id) => this.#fetch("GET", `inbox/${encodeURIComponent(id)}`)
+	inboxSetName = (id, name) =>
+		this.#fetch("POST", `inbox/${encodeURIComponent(id)}/name`, { name })
 	inboxSetMuted = (id, muted) =>
 		this.#fetch("POST", `inbox/${encodeURIComponent(id)}/muted`, { muted })
 	inboxDelete = (id) => this.#fetch("DELETE", `inbox/${encodeURIComponent(id)}`)
