@@ -10,16 +10,13 @@ const setMutedIcon = (muted) => {
 	$(".mutedOff").style.display = !muted ? "block" : "none"
 }
 
+const getHomeScreenButton = (id) => {
+	return document.querySelector(`.homeScreen .inbox[data-inbox-id="${id}"]`)
+}
+
 // render screen
-export const renderInboxScreen = (
-	api,
-	{ id, name, address, muted },
-	revealAddress
-) => {
-	// home screen button
-	const homeScreenButton = document.querySelector(
-		`.homeScreen .inbox[data-inbox-id="${id}"]`
-	)
+export const renderInboxScreen = (api, inbox, revealAddress) => {
+	const { id, name, address } = inbox
 
 	// name
 	$(".name").innerText = name
@@ -48,16 +45,15 @@ export const renderInboxScreen = (
 	}
 
 	// mute button
+	let muted = inbox.muted
 	setMutedIcon(muted)
 	$(".muted").onclick = () => {
-		if (homeScreenButton) {
-			const data = JSON.parse(homeScreenButton.dataset.inbox)
-			data.muted = !data.muted
+		muted = !muted
+		setMutedIcon(muted)
+		api.inboxSetMuted(id, muted)
 
-			homeScreenButton.dataset.inbox = JSON.stringify(data)
-			setMutedIcon(data.muted)
-			api.inboxSetMuted(data.id, data.muted)
-		}
+		const inboxButton = getHomeScreenButton(id)
+		if (inboxButton) button.dataset.inbox = JSON.stringify({ ...inbox, muted })
 	}
 
 	// delete button
