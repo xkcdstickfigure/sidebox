@@ -103,6 +103,7 @@ export const renderInboxScreen = (api, inbox, revealAddress) => {
 			getHomeScreenButton(id)?.remove()
 
 			// return to home screen
+			onBack?.()
 			setScreen("home")
 		})
 	}
