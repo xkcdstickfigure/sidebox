@@ -1,7 +1,7 @@
 SERVER_DEV_HOST="localhost"
 SERVER_DEV_ORIGIN="http://localhost:3000"
-SERVER_PROD_HOST="boxes.taiven.com"
-SERVER_PROD_ORIGIN="https://boxes.taiven.com"
+SERVER_PROD_HOST="sidebox.net"
+SERVER_PROD_ORIGIN="https://sidebox.net"
 
 rm -rf build
 

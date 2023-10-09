@@ -1,1 +1,1 @@
-chrome.runtime.sendMessage({ type: "boxes-auth" })
+chrome.runtime.sendMessage({ type: "sidebox-auth" })
