@@ -3,29 +3,6 @@
 	padding-bottom: 0;
 }
 
-.inboxScreen header .buttons {
-	display: flex;
-	justify-content: space-between;
-}
-
-.inboxScreen header .buttons svg {
-	display: block;
-	width: 16px;
-	height: 16px;
-}
-
-.inboxScreen header .buttonsRight {
-	display: flex;
-}
-
-.inboxScreen header .buttonsRight > :not(:last-child) {
-	margin-right: 8px;
-}
-
-.inboxScreen header .buttons .delete {
-	color: var(--red);
-}
-
 .inboxScreen .name {
 	font-size: 20px;
 	font-weight: 500;

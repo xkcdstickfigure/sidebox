@@ -4,7 +4,7 @@
 		<link href="styles/main.css" rel="stylesheet" />
 	</head>
 
-	<body style="width: 256px; height: 384px">
+	<body class="popup">
 		<div class="screen loadingScreen" data-screen="loading">
 			<div class="inner">
 				<img class="icon" src="../icons/icon.svg" />
@@ -15,23 +15,32 @@
 			<header>
 				<h1 class="title">Sidebox</h1>
 
-				<button class="create">
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						viewBox="0 0 24 24"
-						fill="none"
-						stroke="currentColor"
-						stroke-width="2"
-						stroke-linecap="round"
-						stroke-linejoin="round"
-					>
-						<line x1="12" y1="5" x2="12" y2="19" />
-						<line x1="5" y1="12" x2="19" y2="12" />
-					</svg>
-				</button>
+				<div class="buttonsRight">
+					<button class="open-sidebar">
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+							stroke-linecap="round" stroke-linejoin="round">
+							<line x1="12" y1="5" x2="12" y2="19" />
+							<line x1="5" y1="12" x2="19" y2="12" />
+						</svg>
+					</button>
+					<button class="create">
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="2"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+						>
+							<line x1="12" y1="5" x2="12" y2="19" />
+							<line x1="5" y1="12" x2="19" y2="12" />
+						</svg>
+					</button>
+				</div>
 			</header>
 
-			<div class="inboxes"></div>
+			<div class="inboxes scrollBox"></div>
 
 			<form class="createForm">
 				<div class="popup">
@@ -148,7 +157,7 @@
 
 			<p class="loading">Loading...</p>
 			<p class="empty">Nothing here yet!</p>
-			<div class="messages"></div>
+			<div class="messages scrollBox"></div>
 
 			<form class="renameForm">
 				<div class="popup">
