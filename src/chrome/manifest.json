@@ -6,10 +6,13 @@
 	"icons": {
 		"64": "icons/64.png"
 	},
-	"permissions": ["storage"],
+	"permissions": ["storage", "contextMenus", "sidePanel"],
 	"host_permissions": ["*://{{SERVER}}/*"],
 	"action": {
 		"default_popup": "popup/index.html"
+	},
+	"side_panel": {
+		"default_path": "popup/sidebar.html"
 	},
 	"content_scripts": [
 		{

@@ -11,6 +11,14 @@
 		"default_popup": "popup/index.html",
 		"default_area": "navbar"
 	},
+	"sidebar_action": {
+		"default_icon": {
+			"64": "icons/64.png"
+		},
+		"default_title": "Sidebox",
+		"default_panel": "popup/sidebar.html",
+		"open_at_install": true
+	},
 	"content_scripts": [
 		{
 			"matches": ["*://{{SERVER}}/*"],
