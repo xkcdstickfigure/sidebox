@@ -9,10 +9,10 @@
 	"permissions": ["storage", "contextMenus", "sidePanel"],
 	"host_permissions": ["*://{{SERVER}}/*"],
 	"action": {
-		"default_popup": "popup/index.html"
+		"default_popup": "app/index.html"
 	},
 	"side_panel": {
-		"default_path": "popup/sidebar.html"
+		"default_path": "app/sidebar.html"
 	},
 	"content_scripts": [
 		{
