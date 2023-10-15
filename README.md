@@ -14,3 +14,6 @@ You can create multiple email inboxes and they last forever (unless you delete t
 <!-- zero width space in the email below to avoid linking -->
 ### Why is this better than username+something​@gmail.com?
 Companies can still easily figure out your normal email address, and it's not as easy to block them. With Sidebox, all they get is a random identifier, and once you delete it, it's useless.
+
+### Repository structure
+The main extension code is in `src/shared`. The `build.sh` script creates dev (for running the API locally) and prod (using the real API) builds of the extension for Firefox and Chromium. There's no React or TypeScript or anything fancy, it's just vanilla HTML/CSS/JS. The API is written in Go and is in [another repository](https://github.com/xkcdstickfigure/sidebox-api).
