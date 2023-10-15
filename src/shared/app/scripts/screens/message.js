@@ -12,7 +12,7 @@ export const renderMessageScreen = (
 	{ id, fromName, fromAddress, subject, date }
 ) => {
 	$(".subject").innerText = subject
-	$(".from").innerText = `${fromName} (${fromAddress})`
+	$(".from").innerText = `${fromName} <${fromAddress}>`
 	$(".date").innerText = Intl.DateTimeFormat(undefined, {
 		dateStyle: "medium",
 		timeStyle: "short",
