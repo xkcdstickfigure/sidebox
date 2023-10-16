@@ -1,16 +1,25 @@
 .homeScreen header {
 	display: flex;
-	justify-content: space-between;
+	/* justify-content: flex-start; */
 	padding: 16px;
 	padding-bottom: 4px;
 }
 
 .homeScreen header .title {
-	font-size: 20px;
+	font-size: 16px;
 	font-weight: 500;
+	margin-right: auto;
+	overflow: visible;
+	height: 16px;
+	line-height: 16px;
 }
 
-.homeScreen .create svg {
+.homeScreen button {
+	/* align-self: flex-end; */
+	vertical-align: start;
+}
+
+.homeScreen button svg {
 	display: block;
 	width: 16px;
 	height: 16px;

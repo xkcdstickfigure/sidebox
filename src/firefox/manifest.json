@@ -8,8 +8,16 @@
 	},
 	"permissions": ["storage", "*://{{SERVER}}/*"],
 	"browser_action": {
-		"default_popup": "popup/index.html",
+		"default_popup": "app/index.html",
 		"default_area": "navbar"
+	},
+	"sidebar_action": {
+		"default_icon": {
+			"64": "icons/64.png"
+		},
+		"default_title": "Sidebox",
+		"default_panel": "app/sidebar.html",
+		"open_at_install": true
 	},
 	"content_scripts": [
 		{

@@ -1,0 +1,22 @@
+header .buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+header .buttons svg {
+    display: block;
+    width: 16px;
+    height: 16px;
+}
+
+header .buttonsRight {
+    display: flex;
+}
+
+header .buttonsRight> :not(:last-child) {
+    margin-right: 8px;
+}
+
+header .buttons .delete {
+    color: var(--red);
+}
