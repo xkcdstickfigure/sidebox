@@ -58,9 +58,9 @@ export const renderHomeScreen = (api, account) => {
 
 // render inbox list
 export const renderInboxList = (api, inboxes) => {
-	const value = $(".search").value.trim()
+	const value = $(".search").value.trim().toLowerCase()
 	const filteredInboxes = value
-		? inboxes.filter((inbox) => inbox.name.includes(value))
+		? inboxes.filter((inbox) => inbox.name.toLowerCase().includes(value))
 		: inboxes
 
 	$(".inboxes").innerHTML = ""
