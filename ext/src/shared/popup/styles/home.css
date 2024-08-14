@@ -17,13 +17,8 @@
 }
 
 .homeScreen .search {
-	background: var(--light-gray);
-	border: none;
-	border-radius: 4px;
-	padding: 4px 8px;
 	margin: 0 16px 8px;
 	width: calc(100% - 32px);
-	font-size: 12px;
 }
 
 .homeScreen .inbox {
@@ -93,14 +88,7 @@
 
 .homeScreen .createForm input {
 	width: 100%;
-	padding: 6px 12px;
-	border: solid 1px var(--light-gray);
-	border-radius: 8px;
 	margin-top: 4px;
-}
-
-.homeScreen .createForm input::placeholder {
-	color: var(--gray);
 }
 
 .homeScreen .createForm .buttons {
@@ -113,7 +101,7 @@
 .homeScreen .createForm button {
 	text-align: center;
 	padding: 4px 0;
-	border-radius: 8px;
+	border-radius: 4px;
 }
 
 .homeScreen .createForm .cancel {
