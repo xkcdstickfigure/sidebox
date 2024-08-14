@@ -22,4 +22,4 @@ Companies can still easily figure out your normal email address, and it's not as
 
 ### Repository structure
 
-The main extension code is in `src/shared`. The `build.sh` script creates dev (for running the API locally) and prod (using the real API) builds of the extension for Firefox and Chromium. There's no React or TypeScript or anything fancy, it's just vanilla HTML/CSS/JS. The API is written in Go and is in [another repository](https://github.com/xkcdstickfigure/sidebox-api).
+The main extension code is in `ext/src/shared`. The `ext/build.sh` script creates dev (for running the API locally) and prod (using the real API) builds of the extension for Firefox and Chromium. There's no React or TypeScript or anything fancy, it's just vanilla HTML/CSS/JS.
