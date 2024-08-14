@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sidebox - Instant email inboxes for signing up to things</title>
+    <link rel="icon" href="icon-256.png" />
+    <link rel="stylesheet" href="style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+
+  <body>
+    <h1>Sidebox</h1>
+
+    <p class="subtitle">Instant email inboxes for signing up to things</p>
+
+    <p class="links">
+      <a
+        href="https://chrome.google.com/webstore/detail/sidebox/chpddmjeoblobcepckjmpkfeijknnldn"
+        >Chrome</a
+      >
+      &bull;
+      <a href="https://addons.mozilla.org/en-GB/firefox/addon/sidebox/"
+        >Firefox</a
+      >
+      &bull;
+      <a
+        href="https://chrome.google.com/webstore/detail/sidebox/chpddmjeoblobcepckjmpkfeijknnldn"
+        >Edge</a
+      >
+    </p>
+
+    <img class="screenshot" src="screenshot.png" />
+
+    <p class="footer">
+      <a href="https://discord.gg/acvYQnGvKQ">Discord</a>
+      &bull;
+      <a href="https://github.com/xkcdstickfigure/sidebox">GitHub</a>
+    </p>
+
+    <script>
+      const ref = new URL(location.href).searchParams.get("ref");
+      if (ref)
+        document.cookie = `ref=${encodeURIComponent(ref)}; expires=${new Date(
+          new Date().getTime() + 365 * 24 * 60 * 60 * 1000
+        ).toUTCString()}; path=/`;
+    </script>
+  </body>
+</html>
