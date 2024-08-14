@@ -22,6 +22,11 @@ export const renderHomeScreen = (api, account) => {
 	// inbox list
 	renderInboxList(api, account.inboxes)
 
+	// search
+	$(".search").oninput = () => {
+		renderInboxList(api, account.inboxes)
+	}
+
 	// create inbox
 	$(".createForm").onsubmit = (e) => {
 		e.preventDefault()
@@ -53,8 +58,15 @@ export const renderHomeScreen = (api, account) => {
 
 // render inbox list
 export const renderInboxList = (api, inboxes) => {
+	const value = $(".search").value.trim()
+	const filteredInboxes = value
+		? inboxes.filter((inbox) => inbox.name.includes(value))
+		: inboxes
+
 	$(".inboxes").innerHTML = ""
-	$(".inboxes").append(...inboxes.map((inbox) => createInbox(api, inbox)))
+	$(".inboxes").append(
+		...filteredInboxes.map((inbox) => createInbox(api, inbox)),
+	)
 }
 
 // create inbox list row
@@ -101,3 +113,14 @@ const createInbox = (api, data) => {
 	inbox.append(icon, info)
 	return inbox
 }
+
+// type in search input
+window.addEventListener("keydown", (event) => {
+	const isTyping = event.key.length === 1 || event.key === "Backspace"
+	const isScreenActive = screen.style.display === "block"
+	const isPopupActive = $(".createForm").style.display === "block"
+
+	if (isTyping && isScreenActive && !isPopupActive) {
+		$(".search").focus()
+	}
+})
