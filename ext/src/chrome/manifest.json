@@ -1,7 +1,7 @@
 {
 	"manifest_version": 3,
 	"name": "Sidebox",
-	"version": "0.6",
+	"version": "0.7",
 	"description": "Instant email inboxes for signing up to things",
 	"icons": {
 		"64": "icons/64.png"
